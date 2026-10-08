@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brandbook | Look Up</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'onyx': '#14101A',
+                        'grafite': '#1E1826',
+                        'gelo': '#F8F6FC',
+                        'magenta': '#7E22CE',
+                        'acessivel': '#C084FC',
+                        'ardosia': '#5B4F66',
+                        'prata': '#B2A5BD',
+                    },
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z' fill='%23C084FC' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E\")",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #14101A;
+            color: #F8F6FC;
+        }
+        .glow-text {
+            text-shadow: 0 0 20px rgba(192, 132, 252, 0.3);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(126, 34, 206, 0.4);
+            border-color: #7E22CE;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #14101A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E1826;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #7E22CE;
+        }
+    </style>
+</head>
+<body class="font-inter antialiased bg-grid-pattern relative">
+
+    <!-- Ambient glow elements -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div class="absolute top-[-20%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-magenta opacity-10 blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-acessivel opacity-5 blur-[100px]"></div>
+    </div>
+
+    <nav class="fixed w-full z-50 bg-onyx/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo Nav -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 52 L50 24 L80 52" stroke="#C084FC" fill="none" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 76 L50 48 L80 76" stroke="#7E22CE" fill="none" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="paint0_linear" x1="15" y1="85" x2="85" y2="15" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#7E22CE"/>
+                                <stop offset="1" stop-color="#C084FC"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="font-montserrat font-extrabold text-xl tracking-wide text-white">LOOK UP</span>
+                </div>
+                <!-- Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#dna" class="text-prata hover:text-white transition-colors px-3 py-2 text-sm font-medium">DNA & Estratégia</a>
+                        <a href="#logo" class="text-prata hover:text-white transition-colors px-3 py-2 text-sm font-medium">Logotipo</a>
+                        <a href="#typography" class="text-prata hover:text-white transition-colors px-3 py-2 text-sm font-medium">Tipografia</a>
+                        <a href="#colors" class="text-prata hover:text-white transition-colors px-3 py-2 text-sm font-medium">Cores</a>
+                        <a href="#elements" class="text-prata hover:text-white transition-colors px-3 py-2 text-sm font-medium">Elementos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-grafite border border-white/10 mb-8">
+                <span class="w-2 h-2 rounded-full bg-acessivel animate-pulse"></span>
+                <span class="text-sm font-medium text-prata tracking-wider uppercase">Versão 1.1 Oficial</span>
+            </div>
+            <h1 class="font-montserrat font-extrabold text-5xl md:text-7xl tracking-tight mb-6">
+                Guia de Marca <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-acessivel to-magenta glow-text">Look Up</span>
+            </h1>
+            <p class="mt-4 max-w-2xl text-xl text-prata mx-auto font-light leading-relaxed">
+                Tecnologia, Automação e Inteligência Artificial para elevar a autoridade de prestadores de serviços de alto padrão.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-32">
+
+        <section id="dna" class="scroll-mt-24">
+            <div class="border-l-4 border-magenta pl-6 mb-12">
+                <h2 class="font-montserrat font-bold text-3xl md:text-4xl">1. DNA & Estratégia</h2>
+                <p class="text-prata mt-2 text-lg">A essência verbal e arquitetural da marca.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-grafite rounded-2xl p-8 border border-white/5 card-hover">
+                    <h3 class="font-montserrat font-bold text-xl text-acessivel mb-4">A Missão</h3>
+                    <p class="text-gelo leading-relaxed">
+                        "Impulsionar a modernização de serviços tradicionais através de Inteligência Artificial e automação, transformando processos complexos em soluções ágeis. Descomplicamos a tecnologia com precisão técnica para devolver tempo e escalar a autoridade de profissionais de excelência."
+                    </p>
+                </div>
+                <div class="bg-grafite rounded-2xl p-8 border border-white/5 card-hover">
+                    <h3 class="font-montserrat font-bold text-xl text-acessivel mb-4">O Arquétipo (Mago + Sábio)</h3>
+                    <p class="text-gelo leading-relaxed mb-4">
+                        A marca atua na intersecção da transformação inovadora (o <strong>Mago</strong> que devolve o tempo e torna a tecnologia invisível/mágica) e da precisão técnica irrepreensível (o <strong>Sábio</strong> que garante segurança e rigor aos dados de médicos e advogados).
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-grafite/50 p-6 rounded-xl border border-white/5">
+                    <span class="text-3xl mb-3 block">💡</span>
+                    <h4 class="font-montserrat font-bold text-white mb-2">Inovação Prática</h4>
+                    <p class="text-sm text-prata">IA e automação para resolver dores reais, sem jargões ou modismos passageiros.</p>
+                </div>
+                <div class="bg-grafite/50 p-6 rounded-xl border border-white/5">
+                    <span class="text-3xl mb-3 block">⚡</span>
+                    <h4 class="font-montserrat font-bold text-white mb-2">Agilidade</h4>
+                    <p class="text-sm text-prata">Entregas velozes, comunicação resolutiva e processos fluidos.</p>
+                </div>
+                <div class="bg-grafite/50 p-6 rounded-xl border border-white/5">
+                    <span class="text-3xl mb-3 block">🛡️</span>
+                    <h4 class="font-montserrat font-bold text-white mb-2">Excelência Técnica</h4>
+                    <p class="text-sm text-prata">Rigor em código, interfaces livres de erro e altíssima segurança de dados.</p>
+                </div>
+                <div class="bg-grafite/50 p-6 rounded-xl border border-white/5">
+                    <span class="text-3xl mb-3 block">🤝</span>
+                    <h4 class="font-montserrat font-bold text-white mb-2">Parceria Estratégica</h4>
+                    <p class="text-sm text-prata">Mais que fornecedores; somos os arquitetos digitais do crescimento do cliente.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="voice" class="scroll-mt-24">
+            <div class="border-l-4 border-magenta pl-6 mb-12">
+                <h2 class="font-montserrat font-bold text-3xl md:text-4xl">2. Tom de Voz e Copywriting</h2>
+                <p class="text-prata mt-2 text-lg">Como a Look Up fala com o mercado de alto nível.</p>
+            </div>
+
+            <div class="bg-gelo text-onyx rounded-2xl p-1 overflow-hidden shadow-2xl">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="bg-white border-b border-gray-200">
+                            <th class="p-6 font-montserrat font-bold text-lg text-magenta w-1/2">👍 USE (Assertivo e Estratégico)</th>
+                            <th class="p-6 font-montserrat font-bold text-lg text-red-500 w-1/2">👎 EVITE (Amador ou Genérico)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        <tr class="bg-gelo">
+                            <td class="p-6 font-medium">"Modernização de processos"</td>
+                            <td class="p-6 text-ardosia">"Informatizar o escritório"</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-6 font-medium">"Automações inteligentes e seguras"</td>
+                            <td class="p-6 text-ardosia">"Bots e scripts de internet"</td>
+                        </tr>
+                        <tr class="bg-gelo">
+                            <td class="p-6 font-medium">"Presença digital de alta performance"</td>
+                            <td class="p-6 text-ardosia">"Fazer um sitezinho"</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-6 font-medium">"Liberdade de tempo e escala"</td>
+                            <td class="p-6 text-ardosia">"Ficar sem trabalhar"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="logo" class="scroll-mt-24">
+            <div class="border-l-4 border-magenta pl-6 mb-12">
+                <h2 class="font-montserrat font-bold text-3xl md:text-4xl">3. O Logotipo</h2>
+                <p class="text-prata mt-2 text-lg">Os "Degraus de Autoridade". Dois chevrons que sobem: evolução, progresso e a elevação do padrão de quem confia na Look Up.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Principal -->
+                <div class="lg:col-span-2 bg-grafite rounded-3xl p-12 flex flex-col items-center justify-center border border-white/10 relative overflow-hidden">
+                    <!-- Grid background specific to logo box -->
+                    <div class="absolute inset-0 bg-grid-pattern opacity-50"></div>
+                    <div class="relative z-10 flex items-center gap-6">
+                        <!-- Símbolo SVG -->
+                        <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="filter drop-shadow-[0_0_15px_rgba(192,132,252,0.4)]">
+                            <path d="M20 52 L50 24 L80 52" stroke="#C084FC" fill="none" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 76 L50 48 L80 76" stroke="#7E22CE" fill="none" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                                <linearGradient id="paint_logo_main" x1="15" y1="85" x2="85" y2="15" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#7E22CE"/>
+                                    <stop offset="1" stop-color="#C084FC"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <!-- Textos -->
+                        <div class="flex flex-col">
+                            <span class="font-montserrat font-extrabold text-5xl tracking-widest text-white leading-none">LOOK UP</span>
+                            <span class="font-inter font-medium text-[13px] tracking-[0.3em] text-prata mt-2 ml-1">SITES • AUTOMAÇÃO • IA</span>
+                        </div>
+                    </div>
+                    <span class="absolute bottom-4 right-6 text-xs font-mono text-ardosia">Versão Principal (Horizontal)</span>
+                </div>
+
+                <!-- Secundárias -->
+                <div class="flex flex-col gap-8">
+                    <!-- Dark bg ícone -->
+                    <div class="bg-onyx rounded-2xl p-8 flex flex-col items-center justify-center border border-white/5 flex-1 relative">
+                        <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 52 L50 24 L80 52" stroke="#C084FC" fill="none" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 76 L50 48 L80 76" stroke="#7E22CE" fill="none" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="absolute bottom-4 text-xs font-mono text-ardosia">Ícone / Avatar</span>
+                    </div>
+                    <!-- Light bg Logo -->
+                    <div class="bg-gelo rounded-2xl p-8 flex flex-col items-center justify-center flex-1 relative">
+                        <div class="flex items-center gap-3">
+                            <svg width="35" height="35" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 52 L50 24 L80 52" stroke="#9333EA" fill="none" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 76 L50 48 L80 76" stroke="#6B21A8" fill="none" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div class="flex flex-col">
+                                <span class="font-montserrat font-extrabold text-xl tracking-widest text-onyx leading-none">LOOK UP</span>
+                                <span class="font-inter font-semibold text-[7px] tracking-[0.3em] text-ardosia mt-1">SITES • AUTOMAÇÃO • IA</span>
+                            </div>
+                        </div>
+                        <span class="absolute bottom-4 text-xs font-mono text-ardosia">Aplicação Modo Claro</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Safe area note -->
+            <div class="mt-8 bg-magenta/10 border border-magenta/30 rounded-xl p-6 flex items-start gap-4">
+                <span class="text-acessivel text-2xl">📏</span>
+                <div>
+                    <h4 class="font-montserrat font-bold text-white">Regra de Segurança (Área de Respiro)</h4>
+                    <p class="text-prata text-sm mt-1">A margem de segurança mínima ao redor do logotipo deve ser equivalente à altura da letra "O" da palavra LOOK. Nenhum elemento gráfico deve invadir esta área para manter a leitura "premium" e despoluída.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="typography" class="scroll-mt-24">
+            <div class="border-l-4 border-magenta pl-6 mb-12">
+                <h2 class="font-montserrat font-bold text-3xl md:text-4xl">4. Sistema Tipográfico</h2>
+                <p class="text-prata mt-2 text-lg">A voz oficial: Autoridade aliada à hiper-legibilidade de telas.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Montserrat -->
+                <div>
+                    <div class="flex items-end gap-4 mb-6">
+                        <h3 class="font-montserrat font-extrabold text-6xl text-white">Aa</h3>
+                        <div class="pb-1">
+                            <p class="font-montserrat font-bold text-2xl text-white">Montserrat</p>
+                            <p class="text-acessivel text-sm uppercase tracking-wider">Fonte Primária (Títulos)</p>
+                        </div>
+                    </div>
+                    <div class="bg-grafite rounded-2xl p-8 border border-white/5 space-y-6">
+                        <p class="font-montserrat font-extrabold text-3xl text-white">EXTRA BOLD</p>
+                        <p class="font-montserrat font-bold text-3xl text-white/80">BOLD</p>
+                        <p class="font-montserrat font-medium text-3xl text-white/60">MEDIUM</p>
+                        <hr class="border-white/10">
+                        <p class="font-montserrat text-prata leading-relaxed">
+                            A B C D E F G H I J K L M N O P Q R S T U V W X Y Z <br>
+                            a b c d e f g h i j k l m n o p q r s t u v w x y z <br>
+                            0 1 2 3 4 5 6 7 8 9 ! @ # $ % & *
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Inter -->
+                <div>
+                    <div class="flex items-end gap-4 mb-6">
+                        <h3 class="font-inter font-semibold text-6xl text-white">Aa</h3>
+                        <div class="pb-1">
+                            <p class="font-inter font-bold text-2xl text-white">Inter</p>
+                            <p class="text-acessivel text-sm uppercase tracking-wider">Fonte Secundária (Textos/UI)</p>
+                        </div>
+                    </div>
+                    <div class="bg-grafite rounded-2xl p-8 border border-white/5 space-y-6">
+                        <p class="font-inter font-semibold text-3xl text-white">SEMIBOLD / MEDIUM</p>
+                        <p class="font-inter font-normal text-3xl text-white/80">REGULAR</p>
+                        <p class="font-inter font-light text-3xl text-white/60">LIGHT</p>
+                        <hr class="border-white/10">
+                        <p class="font-inter text-prata leading-relaxed">
+                            A B C D E F G H I J K L M N O P Q R S T U V W X Y Z <br>
+                            a b c d e f g h i j k l m n o p q r s t u v w x y z <br>
+                            0 1 2 3 4 5 6 7 8 9 ! @ # $ % & *
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="colors" class="scroll-mt-24">
+            <div class="border-l-4 border-magenta pl-6 mb-12">
+                <h2 class="font-montserrat font-bold text-3xl md:text-4xl">5. Paleta de Cores & UI</h2>
+                <p class="text-prata mt-2 text-lg">Cores autorais, validadas tecnicamente (WCAG) para conversão e acessibilidade.</p>
+            </div>
+
+            <!-- Cores Principais -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <!-- Ônix Ametista -->
+                <div class="bg-onyx rounded-2xl p-6 border border-white/10 flex flex-col justify-end aspect-square shadow-lg">
+                    <span class="text-white font-bold font-montserrat">Ônix Ametista</span>
+                    <span class="text-prata font-mono text-sm mt-1">#14101A</span>
+                    <span class="text-ardosia text-xs mt-2 font-inter">Fundo Dark Mode</span>
+                </div>
+                <!-- Grafite Profundo -->
+                <div class="bg-grafite rounded-2xl p-6 border border-white/10 flex flex-col justify-end aspect-square shadow-lg">
+                    <span class="text-white font-bold font-montserrat">Grafite Profundo</span>
+                    <span class="text-prata font-mono text-sm mt-1">#1E1826</span>
+                    <span class="text-ardosia text-xs mt-2 font-inter">Superfícies (Cards)</span>
+                </div>
+                <!-- Gelo Look Up -->
+                <div class="bg-gelo rounded-2xl p-6 border border-gray-200 flex flex-col justify-end aspect-square shadow-lg">
+                    <span class="text-onyx font-bold font-montserrat">Gelo Look Up</span>
+                    <span class="text-ardosia font-mono text-sm mt-1">#F8F6FC</span>
+                    <span class="text-ardosia text-xs mt-2 font-inter">Fundo Light Mode</span>
+                </div>
+                <!-- Violeta Magenta -->
+                <div class="bg-magenta rounded-2xl p-6 flex flex-col justify-end aspect-square shadow-[0_10px_30px_rgba(126,34,206,0.3)]">
+                    <span class="text-white font-bold font-montserrat">Violeta Magenta</span>
+                    <span class="text-white/80 font-mono text-sm mt-1">#7E22CE</span>
+                    <span class="text-white/70 text-xs mt-2 font-inter">Marca e Botões Primários</span>
+                </div>
+            </div>
+
+            <!-- Cores Secundárias / Apoio -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-acessivel rounded-2xl p-6 flex items-center justify-between shadow-md">
+                    <div>
+                        <p class="text-onyx font-bold font-montserrat">Violeta Acessível</p>
+                        <p class="text-onyx/70 text-xs mt-1">Links/Destaque Dark Mode</p>
+                    </div>
+                    <span class="text-onyx font-mono text-sm font-semibold">#C084FC</span>
+                </div>
+                <div class="bg-ardosia rounded-2xl p-6 flex items-center justify-between">
+                    <div>
+                        <p class="text-white font-bold font-montserrat">Ardósia Quente</p>
+                        <p class="text-white/70 text-xs mt-1">Textos Sec. Light Mode</p>
+                    </div>
+                    <span class="text-white font-mono text-sm">#5B4F66</span>
+                </div>
+                <div class="bg-prata rounded-2xl p-6 flex items-center justify-between">
+                    <div>
+                        <p class="text-onyx font-bold font-montserrat">Prata Quente</p>
+                        <p class="text-onyx/70 text-xs mt-1">Textos Sec. Dark Mode</p>
+                    </div>
+                    <span class="text-onyx font-mono text-sm font-semibold">#B2A5BD</span>
+                </div>
+            </div>
+
+            <!-- Alerta Contraste -->
+            <div class="mt-8 bg-red-500/10 border border-red-500/30 rounded-xl p-6">
+                <h4 class="font-montserrat font-bold text-red-400 mb-2 flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    Aviso Crítico de Contraste (WCAG)
+                </h4>
+                <p class="text-prata text-sm"><strong>Nunca</strong> utilize a cor <span class="text-magenta font-semibold">Violeta Magenta (#7E22CE)</span> para textos pequenos ou ícones sobre os fundos escuros (Ônix/Grafite), pois reprova no teste de legibilidade. Neste cenário, use obrigatoriamente a cor <span class="text-acessivel font-semibold">Violeta Acessível (#C084FC)</span> para garantir o contraste mínimo de usabilidade.</p>
+            </div>
+        </section>
+
+        <section id="elements" class="scroll-mt-24">
+            <div class="border-l-4 border-magenta pl-6 mb-12">
+                <h2 class="font-montserrat font-bold text-3xl md:text-4xl">6. Elementos de Apoio</h2>
+                <p class="text-prata mt-2 text-lg">A ambientação visual: Fotografia e texturas que enriquecem a marca.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Fotografia -->
+                <div class="space-y-6">
+                    <h3 class="font-montserrat font-bold text-2xl text-white">Direção Fotográfica</h3>
+                    <p class="text-prata font-inter">
+                        Evite fotos de bancos de imagem posadas e clichês. Priorize fotografias de profissionais de saúde e advogados reais, com iluminação natural, em cenários orgânicos (escritórios modernos) interagindo com tecnologia. Cores levemente frias e dessaturadas.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="rounded-2xl overflow-hidden border border-white/10 relative group">
+                            <!-- Using Unsplash with placehold fallback as instructed for high-quality representation -->
+                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800" 
+                                 onerror="this.src='https://placehold.co/800x500/1E1826/C084FC?text=Fotografia+Look+Up'" 
+                                 alt="Exemplo Médico" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-onyx to-transparent p-4">
+                                <span class="bg-black/50 backdrop-blur text-white text-xs px-2 py-1 rounded font-mono">Ex. Saúde Digital</span>
+                            </div>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border border-white/10 relative group">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" 
+                                 onerror="this.src='https://placehold.co/800x500/1E1826/C084FC?text=Fotografia+Look+Up'" 
+                                 alt="Exemplo Advogado" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-onyx to-transparent p-4">
+                                <span class="bg-black/50 backdrop-blur text-white text-xs px-2 py-1 rounded font-mono">Ex. Advocacia Premium</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grafismos UI -->
+                <div class="space-y-6">
+                    <h3 class="font-montserrat font-bold text-2xl text-white">Grafismos e Padrões (UI)</h3>
+                    <p class="text-prata font-inter">
+                        Padrões baseados em malhas conectadas (grids) milimétricas, brilhos suaves (glows) em tons de violeta e bordas sutis. Representam fluxo de dados contínuo e ascensão.
+                    </p>
+
+                    <!-- Mockup de Card UI -->
+                    <div class="bg-grafite rounded-3xl p-8 border border-white/5 relative overflow-hidden h-[545px]">
+                        <!-- Abstract Pattern Background -->
+                        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg0MHY0MEgwdjQweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDAuNWg0ME0wIDM5LjVoNDBNMC41IDB2NDBNMzkuNSAwdjQwIiBzdHJva2U9IiNDMDg0RkMiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4=')] opacity-50"></div>
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-magenta opacity-20 blur-[80px] rounded-full pointer-events-none"></div>
+
+                        <!-- Mockup App Elements -->
+                        <div class="relative z-10 flex flex-col gap-6">
+                            <!-- Fictitious Alert Card -->
+                            <div class="bg-onyx/80 backdrop-blur border border-white/10 rounded-2xl p-5 shadow-2xl">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-8 h-8 rounded-full bg-acessivel/20 flex items-center justify-center">
+                                        <svg width="16" height="16" viewBox="0 0 100 100" fill="#C084FC" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M20 52 L50 24 L80 52" stroke="#C084FC" fill="none" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 76 L50 48 L80 76" stroke="#7E22CE" fill="none" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <span class="font-inter text-sm font-semibold text-white">IA Look Up Ativada</span>
+                                </div>
+                                <p class="text-xs text-prata leading-relaxed">Fluxo de captação de clientes automatizado. 4 novas triagens realizadas nos últimos 10 minutos.</p>
+                                <div class="mt-4 flex gap-2">
+                                    <button class="bg-magenta hover:bg-magenta/80 transition text-white text-xs font-medium py-2 px-4 rounded-lg">Ver Painel</button>
+                                </div>
+                            </div>
+
+                            <!-- Dashboard lines mockup -->
+                            <div class="bg-onyx/80 backdrop-blur border border-white/10 rounded-2xl p-5 shadow-2xl h-48 flex flex-col justify-end">
+                                <div class="flex items-end gap-2 h-full w-full">
+                                    <!-- Animated Bars -->
+                                    <div class="w-1/6 bg-white/5 rounded-t-sm h-[30%] hover:bg-acessivel/50 transition-colors"></div>
+                                    <div class="w-1/6 bg-white/5 rounded-t-sm h-[50%] hover:bg-acessivel/50 transition-colors"></div>
+                                    <div class="w-1/6 bg-white/5 rounded-t-sm h-[40%] hover:bg-acessivel/50 transition-colors"></div>
+                                    <div class="w-1/6 bg-white/5 rounded-t-sm h-[70%] hover:bg-acessivel/50 transition-colors"></div>
+                                    <div class="w-1/6 bg-white/5 rounded-t-sm h-[60%] hover:bg-acessivel/50 transition-colors"></div>
+                                    <div class="w-1/6 bg-gradient-to-t from-magenta/50 to-acessivel rounded-t-sm h-[90%] relative shadow-[0_0_15px_rgba(192,132,252,0.5)]"></div>
+                                </div>
+                                <div class="flex justify-between w-full mt-3">
+                                    <span class="text-[10px] text-ardosia font-mono">Seg</span>
+                                    <span class="text-[10px] text-ardosia font-mono">Tempo Salvo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-white/10 bg-onyx mt-20 py-12 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto mb-6 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                <path d="M20 52 L50 24 L80 52" stroke="#C084FC" fill="none" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 76 L50 48 L80 76" stroke="#7E22CE" fill="none" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <p class="font-montserrat font-bold text-white tracking-widest uppercase mb-2">LOOK UP</p>
+            <p class="text-prata text-sm mb-6">Guia de Identidade Visual e Brandbook • Propriedade Exclusiva</p>
+            <p class="text-ardosia text-xs">Desenvolvido estrategicamente com Brand Architect AI.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
